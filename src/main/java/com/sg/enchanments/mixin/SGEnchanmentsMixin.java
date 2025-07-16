@@ -5,17 +5,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.MinecraftServer;
-
-import java.rmi.registry.Registry;
-import java.util.List;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.sg.enchanments.SGEnchanments;
@@ -63,6 +56,13 @@ public abstract class SGEnchanmentsMixin {
 		// BOW
 		if (stack.getItem().getName().getString().contains(Items.BOW.getName().getString())) {
 			if (SGEnchanments.containsEnchanment(enchantment, SGEnchanments.bowEnchantments)) {
+				return true;
+			}
+			return original;
+		}
+		// SHIELD
+		if (stack.getItem().getName().getString().contains(Items.SHIELD.getName().getString())) {
+			if (SGEnchanments.containsEnchanment(enchantment, SGEnchanments.shieldEnchantments)) {
 				return true;
 			}
 			return original;
