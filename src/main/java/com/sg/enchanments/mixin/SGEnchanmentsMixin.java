@@ -97,7 +97,7 @@ public abstract class SGEnchanmentsMixin {
 		if(SGEnchanments.containsEnchanment(first.value(), SGEnchanments.protectionEnchantments) && SGEnchanments.containsEnchanment(second.value(), SGEnchanments.protectionEnchantments)){
 			return true;
 		}
-		if(SGEnchanments.isSameEnchanment(first.value(), Enchantments.INFINITY) && SGEnchanments.isSameEnchanment(first.value(), Enchantments.MENDING)){
+		if(SGEnchanments.isSameEnchanment(first.value(), Enchantments.INFINITY) && SGEnchanments.isSameEnchanment(second.value(), Enchantments.MENDING)){
 			return true;
 		}
 		return original;
