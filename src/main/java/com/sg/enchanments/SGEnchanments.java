@@ -37,14 +37,10 @@ public class SGEnchanments implements ModInitializer {
 
 	public static boolean isSameEnchanment(Enchantment enchantment,RegistryKey<Enchantment>  enchanmentRegistry){
 		boolean res=  dynamicRegistryManager.getOptional(RegistryKeys.ENCHANTMENT).get().getEntry(enchantment).matchesKey(enchanmentRegistry);
-		LOGGER.info("enchantment: "+enchantment.toString()+" key: " +enchanmentRegistry.getValue().toString()+" res: " + res);
 
 		return res;
 	}
-	public static boolean canCombineEnchantments(RegistryKey<Enchantment>  first,RegistryKey<Enchantment>  second, Set<RegistryKey<Enchantment>> enchanments){
-		//return enchanments.stream().anyMatch(it -> first.(it.getRegistry()));
-		return true;
-	}
+	
 	public static boolean containsEnchanment(Enchantment enchantment, List<RegistryKey<Enchantment>> enchanments){
 		for(RegistryKey<Enchantment> e : enchanments){
 			if(SGEnchanments.isSameEnchanment(enchantment, e)){
